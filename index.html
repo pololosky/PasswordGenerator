@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>PassGen</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body
+    class="bg-[#ececec] flex flex-col h-[100vh] justify-between p-1 font-mono"
+  >
+    <header class="flex items-center justify-between py-2 px-10">
+      <h2 class="text-[#2f435e] text-2xl font-bold">PassGen</h2>
+
+      <div class="flex gap-2">
+        <a class="bg-[#44566c] min-w-[120px] text-white p-3 flex justify-center rounded-md hover:bg-[#2f435e]" href="">S'inscrire</a>
+        <a class="bg-[#44566c] min-w-[120px] text-white p-3 flex justify-center rounded-md hover:bg-[#2f435e]" href="">Me connecter</a>
+      </div>
+    </header>
+    <section
+      class="flex flex-col p-8 gap-[20px] justify-center items-center w-full"
+    >
+      <h1
+        class="flex justify-center text-3xl font-bold text-[#2f435e]"
+      >
+        Generer et enregistrer vos mot de passe facilement
+      </h1>
+      <div
+        class="w-1/3 rounded-xl shadow-2xl flex flex-col justify-center items-center gap-[30px] p-5"
+        id="specifications"
+      >
+        <p class="text-2xl">Configurer votre mot de passe</p>
+
+        <div class="w-full flex flex-col justify-center items-center gap-5">
+          <!-- nombre de caracteres -->
+          <div class="w-full flex flex-col items-center justify-center">
+            <label>Nombres de caracteres</label>
+            <input
+              class="p-3 w-1/2 rounded-md border-solid border-1 outline-[#44566c]"
+              value="8"
+              min="4"
+              max="512"
+              type="number"
+              id="nbreCaractere"
+            />
+          </div>
+          <!-- caracteres speciaux -->
+          <div class="w-full flex flex-col items-center justify-center">
+            <label>Caractere ou mot a inclure</label>
+            <input
+              class="p-3 w-1/2 rounded-md border-solid border-1 outline-[#44566c]"
+              type="text"
+              id="caracteresPropre"
+            />
+          </div>
+          <!-- caracteres speciaux -->
+          <div class="w-1/2 flex gap-5 items-center">
+            <input
+              class="p-3rounded-md border-solid border-1"
+              type="checkbox"
+              id="majuscule"
+            />
+            <label>Inclure majuscules</label>
+          </div>
+          <!--  -->
+          <div class="w-1/2 flex gap-5 items-center">
+            <input
+              class="p-3rounded-md border-solid border-1"
+              type="checkbox"
+              id="symbole"
+            />
+            <label>Inclure des symboles</label>
+          </div>
+          <!--  -->
+          <div class="w-1/2 flex gap-5 items-center">
+            <input
+              class="p-3rounded-md border-solid border-1"
+              type="checkbox"
+              id="chiffre"
+            />
+            <label>Inclure des chifres</label>
+          </div>
+        </div>
+        <!-- le button -->
+        <button
+          onclick="generation()"
+          class="p-2 w-1/2 bg-[#44566c] text-white cursor-pointer rounded-md hover:bg-[#2f435e]"
+        >
+          Generer
+        </button>
+      </div>
+      <!-- reponses -->
+      <div
+        id="reponse"
+        class="w-1/2 rounded-xl shadow-2xl flex-col hidden justify-center items-center gap-[2px] p-5"
+      >
+        <p class="text-xl">Voici votre mot de passe</p>
+
+        <div
+          class="w-full rounded-xl shadow-2xl flex justify-center items-center gap-[2px] p-5"
+        >
+          <input
+            id="inputReponse"
+            class="p-3 w-1/2 rounded-md border-solid border-1 outline-[#44566c]"
+            type="text"
+            readonly
+          />
+          <button
+            id="copy"
+            onclick="copy()"
+            class="p-3 rounded-md bg-[#44566c] text-white hover:bg-[#2f435e] cursor-pointer"
+          >
+            <i class="ri-file-copy-2-line"></i>
+          </button>
+
+          <button
+            class="p-3 hidden rounded-md bg-[#44566c] text-white hover:bg-[#2f435e] cursor-pointer"
+          >
+            <i class="ri-save-fill"></i>
+          </button>
+
+          <button
+            onclick="refresh()"
+            class=" p-3 rounded-md bg-[#44566c] text-white hover:bg-[#2f435e] cursor-pointer"
+          >
+            <i class="ri-arrow-go-back-line"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+    <footer class="w-full flex justify-center items-center">
+      <p class="text-xl">PassGen V 1.0 par <a class="underline text-[#2f435e]" href="https://twitter.com/Pololosky005" target="_blank">Pololosky</a></p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
